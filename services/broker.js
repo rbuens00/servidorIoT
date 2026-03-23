@@ -11,8 +11,8 @@ async function startBroker() {
     const aedes = await Aedes.createBroker();
 
     aedes.authenticate = (client, username, password, callback) => {
-        const expectedUsername = 'datos';
-        const expectedPassword = 'datos@2026';
+        const expectedUsername = process.env.MQTT_USER;
+        const expectedPassword = process.env.MQTT_PASSWORD;
         
         const passedPassword = password ? password.toString() : null;
         
